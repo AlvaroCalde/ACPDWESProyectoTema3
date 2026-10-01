@@ -9,7 +9,6 @@
 <body>
     <nav>
         <h2>Tema 3:Características del lenguaje PHP</h2>
-        <h2>Álvaro Calderón Pérez</h2>
     </nav>
     <main>
         <div class="tabla">
@@ -42,7 +41,7 @@
                         Inicializar y mostrar una variable heredoc
                         </td>
                         <td><a href="./codigoPHP/ejercicio02.php">Ejecutar</td>
-                        <td><a href="mostrarcodigo/codigo5.php">Codigo</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio02.php">Codigo</td>
                     </tr>
 
                     
@@ -52,6 +51,7 @@
     </main>
     <footer>
         <div>
+            <a href="https://github.com/AlvaroCalde/ACPDWESProyectoTema3" target="blank"><img src="/webroot/images/github.png" alt="enlace a github"></a>
             <a href="/">
            Álvaro Calderón Pérez
             </a>

@@ -14,12 +14,13 @@
             }
 
             footer{
-                margin: auto;
                 background-color: black;
                 text-align: center;
                 align-content: center;
                 height: 50px;;
                 color: white;
+                margin-top: 20%;
+
 
                 & div a{
                     color: white;

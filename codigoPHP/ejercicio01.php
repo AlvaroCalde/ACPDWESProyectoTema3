@@ -12,6 +12,10 @@
                 background-color: black; 
                 color: white;
             }
+            
+            span{
+                color: red;
+            }
 
             .ejercicio{
                 margin-top: 10px;
@@ -26,12 +30,12 @@
             }
 
             footer{
-                margin: auto;
                 background-color: black;
                 text-align: center;
                 align-content: center;
                 height: 50px;;
                 color: white;
+                margin-top: 20%;
 
                 & div a{
                     color: white;
@@ -52,58 +56,84 @@
                      * @author Álvaro Calderón Pérez
                      * @since 01-10-2026
                      * Vamos a iniciarlizar unas variables con cada tipo de dato que existe en PHP.
-                     * No hace falta indicar el tipo de la variable.
+                     * No hace falta indicar el tipo de la variable pero se pone una letra determinada al principio del nombre de cada variable para aclarar su tipo
+                     * b=boolean, s=String, etc...
                      */
 
-                    $nombre = "Álvaro";    
-                    $edad = 20;            
-                    $dinero = 35.34;      
-                    $flag = true;     
+                    $bRespuesta = true; 
+                    $iEdad = 20; 
+                    $fSueldoHora = 100.25; 
+                    $sNombre = 'Álvaro';    
 
                     
-                    echo '<p>Mostrado mediante echo</p><br>';
-                    echo 'La variable $nombre tiene como valor: ' . $nombre . ' y es de tipo ' . gettype($nombre) . "<br>";
-                    echo 'La variable $edad tiene como valor: ' . $edad . ' y es de tipo ' . gettype($edad) . "<br>";
-                    echo 'La variable $dinero tiene como valor: ' . $dinero . 'y es de tipo ' . gettype($dinero) . "<br>";
-                    echo 'La variable $flag tiene como valor: ' . $flag . ' y es de tipo ' . gettype($flag) . "<br>";
+                    echo "<p>La variable <span>".'$bRespuesta'."</span> es de tipo <span>".gettype($bRespuesta)."</span> y contiene el valor <span>$bRespuesta</span></p>";
 
-                    echo "<br><br>";
+                    echo "<p>La variable <span>".'$iEdad'."</span> es de tipo <span>".gettype($iEdad)."</span> y contiene el valor <span>$iEdad</span></p>";
 
-                    print("<p>Mostrado mediante print</p><br>");
-                    print("La variable de tipo " . gettype($nombre) . " tiene como valor: " . $nombre . "<br>");
-                    print("La variable de tipo " . gettype($edad) . " tiene como valor: " . $edad . "<br>");
-                    print("La variable de tipo " . gettype($dinero) . " tiene como valor: " . $dinero . "<br>");
-                    print("La variable de tipo " . gettype($flag) . " tiene como valor: " . $flag . "<br>");
+                    echo "<p>La variable <span>".'$fSueldoHora'."</span> es de tipo <span>".gettype($fSueldoHora)."</span> y contiene el valor <span>$fSueldoHora</span></p>";
 
-                    echo "<br><br>";
+                    echo "<p>La variable <span>".'$sNombre'."</span> es de tipo <span>".gettype($sNombre)."</span> y contiene el valor <span>$sNombre</span></p>";
 
-                    printf("<p>Mostrado mediante printf</p><br>");
-                    printf("La variable de tipo %s tiene como valor: %s<br>", gettype($nombre), $nombre);
-                    printf("La variable de tipo %s tiene como valor: %d<br>", gettype($edad), $edad );
-                    printf("La variable de tipo %s tiene como valor: %2.1f<br>", gettype($dinero), $dinero);
-                    printf("La variable de tipo %s tiene como valor: %d<br>", gettype($flag), $flag);
+                    echo "<hr>";
 
+                    echo "<h3>Variables con funcion: print</h3>";
 
-                    echo "<br><br>";
+            // Utilizando la funcion print.
+                    print "<p>La variable <span>" . '$bRespuesta' . "</span> es de tipo <span>".gettype($bRespuesta)."</span> y contiene el valor <span>$bRespuesta</span></p>";
 
-                    print_r("<p>Mostrado mediante print_r</p><br>");
-                    print_r("La variable de tipo " . gettype($nombre) . " tiene como valor: " . $nombre . "<br>");
-                    print_r("La variable de tipo " . gettype($edad) . " tiene como valor: " . $edad . "<br>");
-                    print_r("La variable de tipo " . gettype($dinero) . " tiene como valor: " . $dinero . "<br>");
-                    print_r("La variable de tipo " . gettype($flag) . " tiene como valor: " . $flag . "<br>");
+                    print "<p>La variable <span>" . '$iEdad' . "</span> es de tipo <span>".gettype($iEdad)."</span> y contiene el valor <span>$iEdad</span></p>";
 
+                    print "<p>La variable <span>" . '$fSueldoHora' . "</span> es de tipo <span>".gettype($fSueldoHora)."</span> y contiene el valor <span>$fSueldoHora</span></p>";
 
-                    echo "<br><br>";
+                    print "<p>La variable <span>" . '$sNombre' . "</span> es de tipo <span>".gettype($sNombre)."</span> y contiene el valor <span>$sNombre</span></p>";
 
-                    var_dump('<p>Mostrado mediante var_dump</p>');
+                    echo "<hr>";
+
+                    echo "<h3>Variables con funcion: printf</h3>";
+
+            // Utilizando la funcion printf. 
+                    printf("<p>La variable <span>%s</span> es de tipo <span>%s</span> y contiene el valor <span>%s</span></p>",'$bRespuesta',gettype($bRespuesta), $bRespuesta);
+
+                    printf("<p>La variable <span>%s</span> es de tipo <span>%s</span> y contiene el valor <span>%d</span></p>",'$iEdad',gettype($iEdad), $iEdad);
+
+                    printf("<p>La variable <span>%s</span> es de tipo <span>%s</span> y contiene el valor <span>%.2f</span></p>",'$fSueldoHora',gettype($fSueldoHora), $fSueldoHora);
+
+                    printf("<p>La variable <span>%s</span> es de tipo <span>%s</span> y contiene el valor <span>%s</span></p>",'$sNombre',gettype($sNombre), $sNombre);
+
+                    printf("<hr>");
+
+                    echo "<h3>Variables con funcion: print_r</h3>";
+
+            // Utilizando la funcion print_r.
+                    echo "<p>La variable <span>".'$bRespuesta'."</span> es de tipo <span>".gettype($bRespuesta)."</span> y contiene el valor <span>".print_r($bRespuesta, true)."</span></p>";
+
+                    echo "<p>La variable <span>".'$iEdad'."</span> es de tipo <span>".gettype($iEdad)."</span> y contiene el valor <span>".print_r($iEdad, true)."</span></p>";
+
+                    echo "<p>La variable <span>".'$fSueldoHora'."</span> es de tipo>".gettype($fSueldoHora)."</span> y contiene el valor <span>".print_r($fSueldoHora, true)."</span></p>";
+
+                    echo "<p>La variable <span>".'$sNombre'."</span> es de tipo <span>".gettype($sNombre)."</span> y contiene el valor <span>".print_r($sNombre, true)."</span></p>";
+
+                    echo "<hr>";
+
+                    echo "<h3>Variables con funcion: var_dump</h3>";
+
                     echo "<br>";
-                    var_dump('La variable de tipo ' . gettype($nombre) . ' tiene como valor: ' . $nombre);
-                    echo "<br>";
-                    var_dump('La variable de tipo ' . gettype($edad) . ' tiene como valor: ' . $edad);
-                    echo "<br>";
-                    var_dump('La variable de tipo ' . gettype($dinero) . ' tiene como valor: ' . $dinero);
-                    echo "<br>";
-                    var_dump('La variable de tipo ' . gettype($flag) . ' tiene como valor: ' . $flag);
+                    echo "<p>La variable <span>".'$bRespuesta'."</span>: ";       
+                    var_dump($bRespuesta);        
+                    echo "</p>";
+
+                    echo "<p>La variable <span>".'$iEdad'."</span>: ";
+                    var_dump($iEdad);
+                    echo "</p>";
+
+                    echo "<p>La variable <span>".'$fSueldoHora'."</span>: ";
+                    var_dump($fSueldoHora);
+                    echo "</p>";
+
+                    echo "<p>La variable <span>".'$sNombre'."</span>: ";
+                    var_dump($sNombre);
+                    echo "</p>";
+        
                 ?>
         </div>
         </main>

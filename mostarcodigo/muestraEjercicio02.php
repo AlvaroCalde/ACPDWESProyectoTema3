@@ -1,34 +1,16 @@
 <!doctype html>
 <html lang="es">
     <head>
-        <title>Ejercicio 0</title>
+        <title>Ejercicio 1</title>
         <style>
             *{
                 margin: 0 auto;
                 padding: 0 auto;
             }
-            body{
-                font-family: Arial, sans-serif;
-                background: #f4f6f9;
-                align-items: center;
-                text-align: center;
-            }
 
             nav{
                 background-color: black; 
                 color: white;
-            }
-
-            .ejercicio{
-                margin-top: 10px;
-                margin-bottom: 10px;
-                width: 750px;
-                border: 1px solid black;
-                border-radius: 10px;
-
-                p{
-                    font-weight: bold;
-                }
             }
 
             footer{
@@ -38,6 +20,8 @@
                 height: 50px;;
                 color: white;
                 margin-top: 20%;
+
+                
 
                 & div a{
                     color: white;
@@ -49,21 +33,18 @@
     <body>
         <nav>
             <h2>DWES - Tema 3</h2>
-            <h2>Ejercicio 0</h2>
+            <h2>Ejercicio 2</h2>
         </nav>
         <main>
             <div class="ejercicio">
                 <?php
-                echo 'Con la función highlight_file()';
-                highlight_file("../codigoPHP/ejercicio00.php");
-                echo 'Con la función show_source()';
-                show_source("../codigoPHP/ejercicio00.php");
+                highlight_file("../codigoPHP/ejercicio02.php");
                 ?>
             </div>
         </main>
         <footer>
             <div>
-                <a href="../indexProyectoTema3.html" color="white">
+                <a href="../indexProyectoTema3.html">
                Álvaro Calderón Pérez
                 </a>
                 <time datetime="2026-10-01">01-10-2026</time>
@@ -71,5 +52,4 @@
         </footer>
     </body>
 </html>
-
 

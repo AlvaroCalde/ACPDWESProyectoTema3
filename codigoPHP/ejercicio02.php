@@ -23,6 +23,7 @@
                 margin-top: 10px;
                 margin-bottom: 10px;
                 width: 750px;
+                padding: 30px;
                 border: 1px solid black;
                 border-radius: 10px;
 
@@ -63,17 +64,15 @@
                      */
 
                     // Definimos la variable
-                    $v = "'variable'";
-                    $vheredoc = <<< IDENTIFICADOR
-                            <p>Estoy escribiendo una linea para mostrar 
-                            por pantalla y entender que es el heredoc.<br>
-                            Por ejemplo esta variable $v se muestra sin
-                            necesidad de ""</p>
-
-                            IDENTIFICADOR;
+                    $estado_buscado = "activo";
+                    $vheredoc = <<<SQL
+                    SELECT id, nombre, email
+                    FROM usuarios
+                    WHERE estado = '$estado_buscado'
+                    ORDER BY fecha_registro DESC;
+                    SQL;
 
                     // Mostramos la variable heredoc.
-                    print("Estamos trabajando con una variable de tip heredoc y todo lo mostrado en negrita es contenido de dicha variable:");
                     print_r($vheredoc);
                 ?>
             </div>

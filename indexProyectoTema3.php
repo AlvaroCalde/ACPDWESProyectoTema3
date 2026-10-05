@@ -43,6 +43,14 @@
                         <td><a href="./codigoPHP/ejercicio02.php">Ejecutar</td>
                         <td><a href="./mostarcodigo/muestraEjercicio02.php">Codigo</td>
                     </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                        Mostrar en tu página index la fecha y hora actual formateada en castellano
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio03.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio03.php">Codigo</td>
+                    </tr>
 
                     
                 </tbody>
@@ -55,7 +63,7 @@
             <a href="/">
            Álvaro Calderón Pérez
             </a>
-            <time datetime="2026-09-30">30-09-2026</time>
+            <time datetime="2026-10-02">02-10-2026</time>
         </div>
     </footer>
 

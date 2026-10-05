@@ -63,7 +63,7 @@
                     $bRespuesta = true; 
                     $iEdad = 20; 
                     $fSueldoHora = 100.25; 
-                    $sNombre = 'Álvaro';    
+                    $sNombre = "Álvaro";    
 
                     
                     echo "<p>La variable <span>".'$bRespuesta'."</span> es de tipo <span>".gettype($bRespuesta)."</span> y contiene el valor <span>$bRespuesta</span></p>";

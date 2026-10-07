@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="es">
     <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ejercicio 3</title>
         <style>
             *{
@@ -78,6 +80,20 @@
                     // Mostrar la fecha con formato xx/xx/xxxx.
                     print("<p>Formato de fecha: DD-MM-YY</p>");
                     echo $fechaActual->format("d-m-y");
+                    
+                    echo "<br>";
+                    echo "<br>";
+
+                    // Mostrar la hora con formato HH:MM AM/PM.
+                    print("<p>Formato de hora HH:MM AM/PM</p>");
+                    echo $fechaActual->format("h:i a");
+
+                    echo "<br>";
+                    echo "<br>";
+
+                    // Mostrar la hora con formato HH:MM:SS AM/PM.
+                    print("<p>Formato de hora: HH:MM:SS AM/PM</p>");
+                    echo $fechaActual->format("h:i:s a");
                 ?>
             </div>
         </main>

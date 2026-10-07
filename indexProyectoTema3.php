@@ -51,6 +51,71 @@
                         <td><a href="./codigoPHP/ejercicio03.php">Ejecutar</td>
                         <td><a href="./mostarcodigo/muestraEjercicio03.php">Codigo</td>
                     </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                        Mostrar la fecha de Oporto por pantalla.
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio04.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio04.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                        Inicializar y mostrar una variable que tiene una marca de tiempo (timestamp)
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio05.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio05.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                        Operar con fechas: calcular la fecha y el día de la semana de dentro de 60 días.
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio06.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio06.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>
+                        Mostrar el nombre del fichero que se está ejecutando
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio07.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio07.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>
+                        Mostrar la dirección IP del equipo desde el que estás accediendo.
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio08.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio08.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>
+                        Mostrar el path donde se encuentra el fichero que se está ejecutando.
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio09.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio09.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>
+                        Mostrar el contenido de las variables superglobales (utilizando print_r() y foreach())
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio12.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio12.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>
+                        Crear e inicializar un array con el sueldo percibido de lunes a domingo. Recorrer el array para calcular el sueldo percibido durante la
+                        semana. (Array asociativo con los nombres de los días de la semana).
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio15.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio15.php">Codigo</td>
+                    </tr>
 
                     
                 </tbody>
@@ -63,7 +128,6 @@
             <a href="/">
            Álvaro Calderón Pérez
             </a>
-            <time datetime="2026-10-02">02-10-2026</time>
         </div>
     </footer>
 

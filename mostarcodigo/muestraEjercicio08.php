@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
             <meta charset="UTF-8">
-        <title>Ejercicio 1</title>
+        <title>Ejercicio 8</title>
         <style>
             *{
                 margin: 0 auto;
@@ -22,6 +22,7 @@
                 color: white;
                 margin-top: 20%;
 
+                
 
                 & div a{
                     color: white;
@@ -33,12 +34,12 @@
     <body>
         <nav>
             <h2>DWES - Tema 3</h2>
-            <h2>Ejercicio 1</h2>
+            <h2>Ejercicio 8</h2>
         </nav>
         <main>
             <div class="ejercicio">
                 <?php
-                highlight_file("../codigoPHP/ejercicio01.php");
+                highlight_file("../codigoPHP/ejercicio08.php");
                 ?>
             </div>
         </main>
@@ -47,11 +48,9 @@
                 <a href="../indexProyectoTema3.html">
                Álvaro Calderón Pérez
                 </a>
-                <time datetime="2026-10-01">01-10-2026</time>
+                <time datetime="2026-10-02">02-10-2026</time>
             </div>
         </footer>
     </body>
 </html>
-
-
 

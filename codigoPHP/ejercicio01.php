@@ -139,7 +139,7 @@
         </main>
         <footer>
             <div>
-                <a href="../indexProyectoTema3.html" color="white">
+                <a href="../indexProyectoTema3.php" color="white">
                Álvaro Calderón Pérez
                 </a>
                 <time datetime="2026-10-01">01-10-2026</time>

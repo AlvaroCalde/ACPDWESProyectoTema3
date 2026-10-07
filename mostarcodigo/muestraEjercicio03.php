@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
     <head>
+            <meta charset="UTF-8">
         <title>Ejercicio 3</title>
         <style>
             *{

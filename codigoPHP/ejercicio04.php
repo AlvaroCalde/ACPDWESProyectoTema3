@@ -1,31 +1,26 @@
 <!doctype html>
-<html>
+<html lang="es">
     <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ejercicio 2</title>
+        <title>Ejercicio 4</title>
         <style>
             *{
                 margin: 0 auto;
                 padding: 0 auto;
-            }
-            body{
-                font-family: Arial, sans-serif;
-                background: #f4f6f9;
-                align-items: center;
-                text-align: center;
             }
 
             nav{
                 background-color: black; 
                 color: white;
             }
+            
+            span{
+                color: red;
+            }
 
             .ejercicio{
                 margin-top: 10px;
                 margin-bottom: 10px;
                 width: 750px;
-                padding: 30px;
                 border: 1px solid black;
                 border-radius: 10px;
 
@@ -42,8 +37,6 @@
                 color: white;
                 margin-top: 20%;
 
- 
-
                 & div a{
                     color: white;
                    text-decoration: none; 
@@ -54,39 +47,39 @@
     <body>
         <nav>
             <h2>DWES - Tema 3</h2>
-            <h2>Ejercicio 2</h2>
+            <h2>Ejercicio 4</h2>
         </nav>
         <main>
             <div class="ejercicio">
                 <?php
                     /**
                      * @author Álvaro Calderón Pérez
-                     * @date 01-10-2026
-                     * 2. Inicializamos una variable heredoc y la mostramos por pantalla.
+                     * @since 07-10-2026
+                     * Mostrar la fecha de Oporto por pantalla.
                      */
 
-                    // Definimos la variable
-                    $estado_buscado = "activo";
-                    $vheredoc = <<<SQL
-                    SELECT id, nombre, email
-                    FROM usuarios
-                    WHERE estado = '$estado_buscado'
-                    ORDER BY fecha_registro DESC;
-                    SQL;
+                    // Ajustamos la fecha y hora a la zona de Lisboa.
+                    date_default_timezone_set("Europe/Lisbon");
 
-                    // Mostramos la variable heredoc.
-                    print_r($vheredoc);
+                    $fecha = new DateTime("now", new DateTimeZone("Europe/Lisbon"));
+
+                    // Usamos date("formato") para poner el formato de fecha y hora de Portugal.
+                    echo date("d-m-y h:i:s");
+                    echo "<br>";
+
+                    // Mostrar por pantalla la fecha con el formato en portugés.
+                    echo "Hoy es " . $fecha->format("l") . " " . $fecha->format("d") . " de " . $fecha->format("M") . " de " . $fecha->format("y") . " y la hora es " . $fecha->format("h:i:s a");
+        
                 ?>
-            </div>
+        </div>
         </main>
         <footer>
             <div>
                 <a href="../indexProyectoTema3.php" color="white">
                Álvaro Calderón Pérez
                 </a>
-                <time datetime="2026-10-01">01-10-2026</time>
+                <time datetime="2026-10-07">07-10-2026</time>
             </div>
         </footer>
     </body>
 </html>
-

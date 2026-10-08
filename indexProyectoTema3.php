@@ -143,6 +143,7 @@
                         <td><a href="./codigoPHP/ejercicio21.php">Ejecutar</td>
                         <td><a href="./mostarcodigo/muestraEjercicio21.php">Codigo</td>
                     </tr>
+                     
 
                     
                 </tbody>

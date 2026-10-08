@@ -100,12 +100,30 @@
                         <td><a href="./mostarcodigo/muestraEjercicio09.php">Codigo</td>
                     </tr>
                     <tr>
+                        <td>10</td>
+                        <td>
+                        Mostrar el contenido del fichero que se está ejecutando
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio10.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio10.php">Codigo</td>
+                    </tr>                  
+                    <tr>
                         <td>12</td>
                         <td>
                         Mostrar el contenido de las variables superglobales (utilizando print_r() y foreach())
                         </td>
                         <td><a href="./codigoPHP/ejercicio12.php">Ejecutar</td>
                         <td><a href="./mostarcodigo/muestraEjercicio12.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>
+                        Comprobar las librerías que estás utilizando en tu entorno de desarrollo y explotación. Crear tu propia librería de funciones y estudiar la
+                        forma de usarla en el entorno de desarrollo y en el de explotación.
+
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio14.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio14.php">Codigo</td>
                     </tr>
                     <tr>
                         <td>15</td>
@@ -115,6 +133,15 @@
                         </td>
                         <td><a href="./codigoPHP/ejercicio15.php">Ejecutar</td>
                         <td><a href="./mostarcodigo/muestraEjercicio15.php">Codigo</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>
+                        Construir un formulario para recoger un cuestionario realizado a una persona y enviarlo a una página Tratamiento.php para que muestre
+                        las preguntas y las respuestas recogidas.
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio21.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio21.php">Codigo</td>
                     </tr>
 
                     

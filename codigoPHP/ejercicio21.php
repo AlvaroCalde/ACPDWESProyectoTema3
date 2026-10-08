@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
     <head>
-        <title>Ejercicio 12</title>
+        <title>Ejercicio 21</title>
         <style>
             *{
                 margin: 0 auto;
@@ -18,6 +18,7 @@
             }
 
             .ejercicio{
+                padding: 50px;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 width: 1150px;
@@ -42,41 +43,39 @@
                    text-decoration: none; 
                 }
             }
+            span{
+                color: red;
+            }
         </style>
     </head>
     <body>
         <nav>
             <h2>DWES - Tema 3</h2>
-            <h2>Ejercicio 12</h2>
+            <h2>Ejercicio 21</h2>
         </nav>
         <main>
             <div class="ejercicio">
                 <?php
                     /**
                      * @author Álvaro Calderón Pérez
-                     * @since 07-10-2026
-                     * Mostrar el contenido de las variables superglobales (utilizando print_r() y foreach()).
+                     * @since 08-10-2026
+                     *  Construir un formulario para recoger un cuestionario realizado a una persona y enviarlo a una página Tratamiento.php para que muestre
+                        las preguntas y las respuestas recogidas.
+
                      */
-
-                    echo "<h3>Contenido de \$_SERVER usando print_r:</h3>";
-                    echo "<pre>";
-                    print_r($_SERVER);
-                    echo "</pre>";
-
-                    echo "<h2>Contenido de \$_SERVER usando foreach()</h2>";
-                    echo "<ul>";
-                    foreach ($_SERVER as $clave => $valor) {
-                        // Si el valor es un array (rara vez en $_SERVER, pero útil en otras), lo convertimos a texto
-                        if (is_array($valor)) {
-                            $valor = json_encode($valor);
-                        }
-                        echo "<li><strong>{$clave}:</strong> {$valor}</li>";
-                    }
-                    echo "</ul>";
-                    
-                    
-                    
                 ?>
+                
+                <form name="input" action="Tratamiento.php" method="post">
+                    <label name="nombre" >Nombre:</label>
+                    <input type="text" name="nombre" id="nombre"/>
+                    <br/>
+                    <label name="fecha">Fecha de Nacimiento:</label>
+                    <input type="date" name="fecha" id="fecha"/>
+                    <br/>
+                    <label name="sueldo">Sueldo mensual:</label>
+                    <input type="number" name="sueldo" min="0" id="sueldo" step="any"/><br>
+                    <input type="submit" value="Enviar"/>
+                </form>
         </div>
         </main>
         <footer>
@@ -84,7 +83,7 @@
                 <a href="../indexProyectoTema3.php" color="white">
                Álvaro Calderón Pérez
                 </a>
-                <time datetime="2026-10-07">07-10-2026</time>
+                <time datetime="2026-10-08">08-10-2026</time>
             </div>
         </footer>
     </body>

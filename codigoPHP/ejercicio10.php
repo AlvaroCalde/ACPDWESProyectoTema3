@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
     <head>
-        <title>Ejercicio 12</title>
+        <title>Ejercicio 10</title>
         <style>
             *{
                 margin: 0 auto;
@@ -18,6 +18,7 @@
             }
 
             .ejercicio{
+                padding: 20px;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 width: 1150px;
@@ -42,12 +43,15 @@
                    text-decoration: none; 
                 }
             }
+            span{
+                color: red;
+            }
         </style>
     </head>
     <body>
         <nav>
             <h2>DWES - Tema 3</h2>
-            <h2>Ejercicio 12</h2>
+            <h2>Ejercicio 10</h2>
         </nav>
         <main>
             <div class="ejercicio">
@@ -55,27 +59,10 @@
                     /**
                      * @author Álvaro Calderón Pérez
                      * @since 07-10-2026
-                     * Mostrar el contenido de las variables superglobales (utilizando print_r() y foreach()).
+                     * Mostrar el contenido del fichero que se está ejecutando
                      */
 
-                    echo "<h3>Contenido de \$_SERVER usando print_r:</h3>";
-                    echo "<pre>";
-                    print_r($_SERVER);
-                    echo "</pre>";
-
-                    echo "<h2>Contenido de \$_SERVER usando foreach()</h2>";
-                    echo "<ul>";
-                    foreach ($_SERVER as $clave => $valor) {
-                        // Si el valor es un array (rara vez en $_SERVER, pero útil en otras), lo convertimos a texto
-                        if (is_array($valor)) {
-                            $valor = json_encode($valor);
-                        }
-                        echo "<li><strong>{$clave}:</strong> {$valor}</li>";
-                    }
-                    echo "</ul>";
-                    
-                    
-                    
+                    echo "<pre>" . htmlspecialchars(file_get_contents($_SERVER['SCRIPT_FILENAME'])) . "</pre>";
                 ?>
         </div>
         </main>

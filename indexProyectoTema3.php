@@ -143,6 +143,14 @@
                         <td><a href="./codigoPHP/ejercicio21.php">Ejecutar</td>
                         <td><a href="./mostarcodigo/muestraEjercicio21.php">Codigo</td>
                     </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>
+                        Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
+                        recogidas.
+                        </td>
+                        
+                    </tr>
                      
 
                     

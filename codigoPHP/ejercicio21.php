@@ -3,6 +3,9 @@
     <head>
         <title>Ejercicio 21</title>
         <style>
+            input:required{
+                background-color: #fff9c4;
+            }
             *{
                 margin: 0 auto;
                 padding: 0 auto;
@@ -67,13 +70,13 @@
                 
                 <form name="input" action="Tratamiento.php" method="post">
                     <label name="nombre" >Nombre:</label>
-                    <input type="text" name="nombre" id="nombre"/>
+                    <input type="text" name="nombre" id="nombre" required/>
                     <br/>
                     <label name="fecha">Fecha de Nacimiento:</label>
-                    <input type="date" name="fecha" id="fecha"/>
+                    <input type="date" name="fecha" id="fecha" required/>
                     <br/>
                     <label name="sueldo">Sueldo mensual:</label>
-                    <input type="number" name="sueldo" min="0" id="sueldo" step="any"/><br>
+                    <input type="number" name="sueldo" min="0" id="sueldo" step="any" required/><br>
                     <input type="submit" value="Enviar"/>
                 </form>
         </div>

@@ -149,6 +149,18 @@
                         Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
                         recogidas.
                         </td>
+                        <td><a href="./codigoPHP/ejercicio22.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio22.php">Codigo</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>
+                        Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas recogidas; 
+                        en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio23.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio23.php">Codigo</td>
                         
                     </tr>
                      

@@ -63,13 +63,13 @@
                         // Validamos los datos para cada campo del formulario.
 
                         $aErrores['nombre'] = validacionFormularios::comprobarAlfabetico($_REQUEST['nombre'],100,0,1);
-                        $aErrores['fecha'] = validacionFormularios::validarFecha($_REQUEST['fecha']);
-                        $aErrores['sueldo'] = validacionFormularios::comprobarFloat($_REQUEST['sueldo']);
+                        $aErrores['fecha'] = validacionFormularios::validarFecha($_REQUEST['fecha'],"01/01/2027","01/01/1900", 1);
+                        $aErrores['sueldo'] = validacionFormularios::comprobarFloat($_REQUEST['sueldo'], 10000, 0, 1);
 
                         // Recorremos el array de errores para comprobar si ha habido alguno.
                         // true: la variable booleana $entradaOk recibe el valor false.
                         foreach ($aErrores as $campo => $valor) {
-                            if($valor != null){
+                            if(!empty($valor)){
                                 $entradaOk = false;
                             }
                         }
@@ -100,19 +100,19 @@
                     Nombre: <input type="text" name="nombre" value="<?php echo $aRespuestas['nombre']; ?>"/>
                     <?php
                     // Mostrar mensajes de error (si los hay y el formulario no se muestra por primera vez)
-                    if($aErrores['nombre'] != null) {echo "<span style='color:red; display:block; font-size:13px;>{$aErrores['nombre']}</span>";}
+                    if(!empty($aErrores['nombre'])) {echo "<span style='color:red; display:block; font-size:13px;'>{$aErrores['nombre']}</span>";}
                     ?>
                     <br>
                 
                     Fecha de nacimiento: <input type="date" name="fecha" value="<?php echo $aRespuestas['fecha']; ?>"/>
                     <?php
-                    if($aErrores['fecha'] != null) {echo "<span style='color:red; display:block; font-size:13px;>{$aErrores['fecha']}</span>";}
+                    if(!empty($aErrores['fecha'])) {echo "<span style='color:red; display:block; font-size:13px;'>{$aErrores['fecha']}</span>";}
                     ?>
                     <br>
                 
                     Sueldo mensual: <input type="number" name="sueldo" min="0" value="<?php echo $aRespuestas['sueldo']; ?>" step="any"/>
                     <?php
-                    if($aErrores['sueldo'] != null) {echo "<span style='color:red; display:block; font-size:13px;'>'>{$aErrores['sueldo']}</span>";}
+                    if(!empty($aErrores['sueldo'])) {echo "<span style='color:red; display:block; font-size:13px;'>{$aErrores['sueldo']}</span>";}
                     ?>
                     <br>
                     

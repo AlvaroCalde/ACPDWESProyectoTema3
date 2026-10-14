@@ -163,6 +163,17 @@
                         <td><a href="./mostarcodigo/muestraEjercicio23.php">Codigo</td>
                         
                     </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>
+                        Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
+                        recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente, pero las
+                        respuestas que habíamos tecleado correctamente aparecerán en el formulario y no tendremos que volver a teclearlas
+                        </td>
+                        <td><a href="./codigoPHP/ejercicio24.php">Ejecutar</td>
+                        <td><a href="./mostarcodigo/muestraEjercicio24.php">Codigo</td>
+                        
+                    </tr>
                      
 
                     

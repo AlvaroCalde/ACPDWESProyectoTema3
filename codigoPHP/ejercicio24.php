@@ -6,7 +6,12 @@
             input[type="text"],input[type="date"],input[type="number"]{ background-color: #fff9c4; }
             *{ margin: 0 auto; padding: 0 auto; }
             nav{ background-color: black; color: white; }
-            span{ color: red; }
+            .error { 
+                color: red; 
+                display: block; 
+                font-size: 13px; 
+                min-height: 16px; /* Mantiene el espacio aunque no haya error */
+            }
             .ejercicio{
                 padding: 50px;
                 margin-top: 10px;
@@ -33,89 +38,73 @@
                 <?php
                 /**
                      * @author Álvaro Calderón Pérez
-                     * @since 13-10-2026
-                     *  Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
-                        recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente.
+                     * @since 14-10-2026
                      */
                      
-                     // importación de la librería
                      require_once  '../core/231018libreriaValidacion.php';
                      
-                    // Inicialización de variables
-                    $entradaOk = true; // Variable que nos indica que todo va bien
+                    $entradaOk = true; 
                     $aErrores = [
                         'nombre' => '',
                         'fecha' => '',
                         'sueldo' => ''
-                    ]; // Array donde recogemos los mensajes de error
+                    ]; 
                     $aRespuestas = [
                         'nombre' => '',
                         'fecha' => '',
                         'sueldo' => ''
-                    ]; // Array donde recogeremos las respuestas correctas
+                    ]; 
 
-                    // Para cada campo del formulario: Validar entrada y actuar en consecuencia
                     if(isset($_REQUEST["submit"])){
-                        // Validamos los datos para cada campo del formulario.
+                        
+                        $sueldoProcesado = str_replace(',', '.', $_REQUEST['sueldo']);
+                        
                         $aErrores['nombre'] = validacionFormularios::comprobarAlfabetico($_REQUEST['nombre'],100,0,1);
                         $ofecha = new DateTime();
                         $aErrores['fecha'] = validacionFormularios::validarFecha($_REQUEST['fecha'],"01/01/2027","01/01/1900", 1,$ofecha->format('d/m/Y'));
-                        $aErrores['sueldo'] = validacionFormularios::comprobarFloat($_REQUEST['sueldo'], 10000, 0, 1);
+                        $aErrores['sueldo'] = validacionFormularios::comprobarFloat($sueldoProcesado, 10000, 0, 1);
 
-                        // Recorremos el array de errores para comprobar si ha habido alguno.
+
                         foreach ($aErrores as $campo => $valor) {
                             if(!empty($valor)){
-                                $entradaOk = false; // Hay un error, no procesaremos el formulario final
-                            } else {
-                                // NO HAY ERROR EN ESTE CAMPO: Guardamos su valor para que se mantenga en el formulario
-                                // o para mostrarlo al final si todo es correcto.
-                                $aRespuestas[$campo] = $_REQUEST[$campo];
+                                $entradaOk = false; 
                             }
                         }
                     } else {
-                        $entradaOk = false;        // Si el formulario no se ha rellenado nunca.
+                        $entradaOk = false;
                     }
 
-                    // Tratamiento del formulario
                     if($entradaOk){
-                        // En caso de que el formulario haya sido rellenado de manera correcta.
-                        // Ya no necesitamos reasignar los valores a $aRespuestas porque lo hemos hecho en el bucle anterior.
+                        $aRespuestas['nombre'] = $_REQUEST['nombre'];
+                        $aRespuestas['fecha'] = date('d/m/Y', strtotime($_REQUEST['fecha']));
+                        $aRespuestas['sueldo'] = number_format((float)$sueldoProcesado, 2, ',', '') . ' €';
                         
-                        // Recorremos el array de respuestas con un foreach para mostrar las respuestas.
                         foreach ($aRespuestas as $campo => $valor) {
                             print("<p>Su $campo es: ".$valor."</p><br>");
                         }
                     } else {
                 ?>
                 
-                <!-- Mostrar formulario -->
-                <form name="input" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                <form name="input" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                     
-                    <!-- Mostrar los datos tecleados correctamente en intentos anteriores (en los value) -->
-                    Nombre: <input type="text" name="nombre" value="<?php echo $aRespuestas['nombre']; ?>"/>
-                    <?php
-                    // Mostrar mensajes de error (si los hay y el formulario no se muestra por primera vez)
-                    if(!empty($aErrores['nombre'])) {echo "<span style='color:red; display:block; font-size:13px;'>{$aErrores['nombre']}</span>";}
-                    ?>
+                    Nombre: <input type="text" name="nombre" value="<?= isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : ''; ?>"/>
+
+                    <span class="error"><?= !empty($aErrores['nombre']) ? $aErrores['nombre'] : ""; ?></span>
                     <br>
                 
-                    Fecha de nacimiento: <input type="date" name="fecha" value="<?php echo $aRespuestas['fecha']; ?>"/>
-                    <?php
-                    if(!empty($aErrores['fecha'])) {echo "<span style='color:red; display:block; font-size:13px;'>{$aErrores['fecha']}</span>";}
-                    ?>
+                    Fecha de nacimiento: <input type="date" name="fecha" value="<?= isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : ''; ?>"/>
+                    <span class="error"><?= !empty($aErrores['fecha']) ? $aErrores['fecha'] : ""; ?></span>
                     <br>
                 
-                    Sueldo mensual: <input type="number" name="sueldo" min="0" value="<?php echo $aRespuestas['sueldo']; ?>" step="any"/>
-                    <?php
-                    if(!empty($aErrores['sueldo'])) {echo "<span style='color:red; display:block; font-size:13px;'>{$aErrores['sueldo']}</span>";}
-                    ?>
+                    Sueldo mensual: <input type="text" name="sueldo" pattern="^[0-9]+(,[0-9]+)?$" title="Introduce un número usando coma para los decimales" value="<?= isset($_REQUEST['sueldo']) ? $_REQUEST['sueldo'] : ''; ?>"/>
+                    <span class="error"><?= !empty($aErrores['sueldo']) ? $aErrores['sueldo'] : ""; ?></span>
                     <br>
                     
                     <p><input type="submit" name="submit" value="Enviar"/></p>
                 </form>
                 
                 <?php
-                    } // Fin si ($entradaOK)
+                    }
                 ?>
             </div>
         </main>

@@ -78,7 +78,7 @@
                         $aRespuestas['fecha'] = new DateTime($_REQUEST["fecha"]);
                         $aRespuestas['sueldo'] = number_format((float)$sueldoProcesado, 2, ',', '') . ' €';
                         
-                        echo '<p>Nombre: ' . $aRespuesta["nombre"] . '</p>';
+                        echo '<p>Nombre: ' . $aRespuestas["nombre"] . '</p>';
                         echo '<p>Fecha de Nacimiento: ' . $aRespuestas["fecha"]->format("d/m/Y") . '</p>';
                         echo '<p>Sueldo mensual: ' . $aRespuestas["sueldo"] . '</p>';
                         

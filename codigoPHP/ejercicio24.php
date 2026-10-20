@@ -60,8 +60,7 @@
                         $sueldoProcesado = str_replace(',', '.', $_REQUEST['sueldo']);
                         
                         $aErrores['nombre'] = validacionFormularios::comprobarAlfabetico($_REQUEST['nombre'],100,0,1);
-                        $ofecha = new DateTime();
-                        $aErrores['fecha'] = validacionFormularios::validarFecha($_REQUEST['fecha'],"01/01/2027","01/01/1900", 1,$ofecha->format('d/m/Y'));
+                        $aErrores['fecha'] = validacionFormularios::validarFecha($_REQUEST['fecha'],date('m/d/Y'),"01/01/1900", 1,);
                         $aErrores['sueldo'] = validacionFormularios::comprobarFloat($sueldoProcesado, 10000, 0, 1);
 
 
@@ -76,12 +75,13 @@
 
                     if($entradaOk){
                         $aRespuestas['nombre'] = $_REQUEST['nombre'];
-                        $aRespuestas['fecha'] = date('d/m/Y', strtotime($_REQUEST['fecha']));
+                        $aRespuestas['fecha'] = new DateTime($_REQUEST["fecha"]);
                         $aRespuestas['sueldo'] = number_format((float)$sueldoProcesado, 2, ',', '') . ' €';
                         
-                        foreach ($aRespuestas as $campo => $valor) {
-                            print("<p>Su $campo es: ".$valor."</p><br>");
-                        }
+                        echo '<p>Nombre: ' . $aRespuesta["nombre"] . '</p>';
+                        echo '<p>Fecha de Nacimiento: ' . $aRespuestas["fecha"]->format("d/m/Y") . '</p>';
+                        echo '<p>Sueldo mensual: ' . $aRespuestas["sueldo"] . '</p>';
+                        
                     } else {
                 ?>
                 
@@ -111,7 +111,7 @@
         <footer>
             <div>
                 <a href="../indexProyectoTema3.php" color="white">Álvaro Calderón Pérez</a>
-                <time datetime="2026-10-14">14-10-2026</time>
+                <time datetime="2026-10-20">20-10-2026</time>
             </div>
         </footer>
     </body>

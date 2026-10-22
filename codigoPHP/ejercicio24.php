@@ -26,6 +26,9 @@
                 height: 50px; color: white; margin-top: 20%;
                 & div a{ color: white; text-decoration: none; }
             }
+            footer a img{
+                width: 40px;
+            }
         </style>
     </head>
     <body>
@@ -36,84 +39,89 @@
         <main>
             <div class="ejercicio">
                 <?php
-                /**
-                     * @author Álvaro Calderón Pérez
-                     * @since 14-10-2026
-                     */
-                     
-                     require_once  '../core/231018libreriaValidacion.php';
-                     
-                    $entradaOk = true; 
-                    $aErrores = [
-                        'nombre' => '',
-                        'fecha' => '',
-                        'sueldo' => ''
-                    ]; 
-                    $aRespuestas = [
-                        'nombre' => '',
-                        'fecha' => '',
-                        'sueldo' => ''
-                    ]; 
+                    require_once '../core/231018libreriaValidacion.php';
+                    //Inicializacion de variables
+                    $entradaOK = true; // Variable que nos indica que todo va bien
 
-                    if(isset($_REQUEST["submit"])){
-                        
-                        $sueldoProcesado = str_replace(',', '.', $_REQUEST['sueldo']);
-                        
-                        $aErrores['nombre'] = validacionFormularios::comprobarAlfabetico($_REQUEST['nombre'],100,0,1);
-                        $aErrores['fecha'] = validacionFormularios::validarFecha($_REQUEST['fecha'],date('m/d/Y'),"01/01/1900", 1,);
-                        $aErrores['sueldo'] = validacionFormularios::comprobarFloat($sueldoProcesado, 10000, 0, 1);
+                    $aError = [
+                        'nombre' => "",
+                        'fechaNacimiento' => "",
+                        'sueldo' => ""];
 
+                    $aRespuesta = [
+                        'nombre' => "",
+                        'fechaNacimiento' => "",
+                        'sueldo' => ""];
 
-                        foreach ($aErrores as $campo => $valor) {
-                            if(!empty($valor)){
-                                $entradaOk = false; 
+                    // Comprueba si el formulario se a enviado
+                    if (isset($_REQUEST["enviar"])) {
+                        // Validar Entrada
+
+                        $aError["nombre"] = validacionFormularios::comprobarAlfabetico($_REQUEST["nombre"],1000,1,1);
+                        $aError["fechaNacimiento"] = validacionFormularios::validarFecha($_REQUEST["fechaNacimiento"],date("m/d/Y"),"01/01/1900", 1);
+                        $aError["sueldo"] = validacionFormularios::comprobarFloatMonetarioES($_REQUEST["sueldo"], PHP_FLOAT_MAX, 0, 1);
+
+                        foreach ($aError as $value) {
+                            if (!empty($value)) {
+                                $entradaOK = false;
                             }
                         }
-                    } else {
-                        $entradaOk = false;
+                    }
+                    // El formulario no se ha enviado nunca
+                    else {
+                        $entradaOK = false;
                     }
 
-                    if($entradaOk){
-                        $aRespuestas['nombre'] = $_REQUEST['nombre'];
-                        $aRespuestas['fecha'] = new DateTime($_REQUEST["fecha"]);
-                        $aRespuestas['sueldo'] = number_format((float)$sueldoProcesado, 2, ',', '') . ' €';
-                        
-                        echo '<p>Nombre: ' . $aRespuestas["nombre"] . '</p>';
-                        echo '<p>Fecha de Nacimiento: ' . $aRespuestas["fecha"]->format("d/m/Y") . '</p>';
-                        echo '<p>Sueldo mensual: ' . $aRespuestas["sueldo"] . '</p>';
-                        
-                    } else {
-                ?>
-                
-                <form name="input" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                    
-                    Nombre: <input type="text" name="nombre" value="<?= isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : ''; ?>"/>
+                    if ($entradaOK) {
+                        //Cargar la variable $aRespuestas y tratamiento de datos OK
+                        $aRespuesta["nombre"] =$_REQUEST["nombre"];
+                        $aRespuesta["fechaNacimiento"] = new DateTime($_REQUEST["fechaNacimiento"]);
+                        $aRespuesta["sueldo"] = floatval(str_replace(',', '.', $_REQUEST["sueldo"]));
 
-                    <span class="error"><?= !empty($aErrores['nombre']) ? $aErrores['nombre'] : ""; ?></span>
-                    <br>
-                
-                    Fecha de nacimiento: <input type="date" name="fecha" value="<?= isset($_REQUEST['fecha']) ? $_REQUEST['fecha'] : ''; ?>"/>
-                    <span class="error"><?= !empty($aErrores['fecha']) ? $aErrores['fecha'] : ""; ?></span>
-                    <br>
-                
-                    Sueldo mensual: <input type="text" name="sueldo" pattern="^[0-9]+(,[0-9]+)?$" title="Introduce un número usando coma para los decimales" value="<?= isset($_REQUEST['sueldo']) ? $_REQUEST['sueldo'] : ''; ?>"/>
-                    <span class="error"><?= !empty($aErrores['sueldo']) ? $aErrores['sueldo'] : ""; ?></span>
-                    <br>
-                    
-                    <p><input type="submit" name="submit" value="Enviar"/></p>
-                </form>
-                
-                <?php
-                    }
-                ?>
+
+                        echo '<p>Nombre: ' . $aRespuesta["nombre"] . '</p>';
+                        echo '<p>Fecha de Nacimiento: ' . $aRespuesta["fechaNacimiento"]->format("d/m/Y") . '</p>';
+                        echo '<p>Sueldo: ' . number_format($aRespuesta["sueldo"], 2, ',', '.') . ' € </p>';
+
+                    } else {
+                        // Mostrar Formulario
+                        ?>
+                    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="formulario" method="post" novalidate>
+                            <label for="nombre" >Nombre:</label>
+
+                            <input type="text" name="nombre" id="nombre" value="<?php echo !empty($_REQUEST["nombre"]) ? htmlspecialchars($_REQUEST["nombre"]): '' ?>"/>
+
+                            <?php echo !empty($aError["nombre"]) ? "<span style='color:red;'>" . $aError['nombre'] . "</span>": '' ?>
+
+                            <br/>
+
+                            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+
+                            <input type="date" name="fechaNacimiento" id="fechaNacimiento" value="<?php echo !empty($_REQUEST["fechaNacimiento"])&&empty($aError["fechaNacimiento"]) ? htmlspecialchars($_REQUEST["fechaNacimiento"]): '' ?>"/>
+
+                            <?php echo !empty($aError["fechaNacimiento"]) ? "<span style='color:red;'>" . $aError['fechaNacimiento'] . "</span>": '' ?>
+                            <br/>
+                            <label for="sueldo" >Sueldo:</label>
+
+                            <input type="text" name="sueldo" id="sueldo" title="Usar comas para separa decimales" value="<?php echo !empty($_REQUEST["sueldo"]) ? htmlspecialchars($_REQUEST["sueldo"]): '' ?>"/>
+
+                            <?php echo !empty($aError["sueldo"]) ? "<span style='color:red;'>" . $aError['sueldo'] . "</span>": '' ?>
+
+                            <br/>
+
+                            <input type="submit" name="enviar" id="enviar" value="Enviar"/>
+                        </form>  
+                    <?php
+                        }   
+                    ?>
             </div>
         </main>
         <footer>
             <div>
-                <a href="../indexProyectoTema3.php" color="white">Álvaro Calderón Pérez</a>
+                <a href="../../ACPDWESProyectoDWES/indexProyectoDWES.php" color="white">Álvaro Calderón Pérez</a>
+                <a href="../indexProyectoTema3.php"><img src="../webroot/images/casa_blanca.png" alt="home"></a>
                 <time datetime="2026-10-20">20-10-2026</time>
             </div>
         </footer>
     </body>
 </html>
-

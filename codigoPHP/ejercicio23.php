@@ -21,6 +21,9 @@
                 height: 50px; color: white; margin-top: 20%;
                 & div a{ color: white; text-decoration: none; }
             }
+            footer a img{
+                width: 40px;
+            }
         </style>
     </head>
     <body>
@@ -127,6 +130,7 @@
         <footer>
             <div>
                 <a href="../indexProyectoTema3.php" color="white">Álvaro Calderón Pérez</a>
+                <a href="../indexProyectoTema3.php"><img src="../webroot/images/casa_blanca.png" alt="home"></a>
                 <time datetime="2026-10-13">13-10-2026</time>
             </div>
         </footer>

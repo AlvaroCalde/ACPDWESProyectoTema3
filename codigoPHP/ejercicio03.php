@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="es">
     <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ejercicio 3</title>
         <style>
             *{
@@ -46,6 +48,9 @@
                    text-decoration: none; 
                 }
             }
+            footer a img{
+                width: 40px;
+            }
         </style>
     </head>
     <body>
@@ -78,6 +83,20 @@
                     // Mostrar la fecha con formato xx/xx/xxxx.
                     print("<p>Formato de fecha: DD-MM-YY</p>");
                     echo $fechaActual->format("d-m-y");
+                    
+                    echo "<br>";
+                    echo "<br>";
+
+                    // Mostrar la hora con formato HH:MM AM/PM.
+                    print("<p>Formato de hora HH:MM AM/PM</p>");
+                    echo $fechaActual->format("h:i a");
+
+                    echo "<br>";
+                    echo "<br>";
+
+                    // Mostrar la hora con formato HH:MM:SS AM/PM.
+                    print("<p>Formato de hora: HH:MM:SS AM/PM</p>");
+                    echo $fechaActual->format("h:i:s a");
                 ?>
             </div>
         </main>
@@ -86,6 +105,7 @@
                 <a href="../indexProyectoTema3.php">
                Álvaro Calderón Pérez
                 </a>
+                <a href="../indexProyectoTema3.php"><img src="../webroot/images/casa_blanca.png" alt="home"></a>
                 <time datetime="2026-10-02">02-10-2026</time>
             </div>
         </footer>

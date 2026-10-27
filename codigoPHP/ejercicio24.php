@@ -78,7 +78,6 @@
                         $aRespuesta["fechaNacimiento"] = new DateTime($_REQUEST["fechaNacimiento"]);
                         $aRespuesta["sueldo"] = floatval(str_replace(',', '.', $_REQUEST["sueldo"]));
 
-
                         echo '<p>Nombre: ' . $aRespuesta["nombre"] . '</p>';
                         echo '<p>Fecha de Nacimiento: ' . $aRespuesta["fechaNacimiento"]->format("d/m/Y") . '</p>';
                         echo '<p>Sueldo: ' . number_format($aRespuesta["sueldo"], 2, ',', '.') . ' € </p>';
@@ -88,25 +87,19 @@
                         ?>
                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="formulario" method="post" novalidate>
                             <label for="nombre" >Nombre:</label>
-
                             <input type="text" name="nombre" id="nombre" value="<?php echo !empty($_REQUEST["nombre"]) ? htmlspecialchars($_REQUEST["nombre"]): '' ?>"/>
-
                             <?php echo !empty($aError["nombre"]) ? "<span style='color:red;'>" . $aError['nombre'] . "</span>": '' ?>
-
                             <br/>
 
                             <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-
                             <input type="date" name="fechaNacimiento" id="fechaNacimiento" value="<?php echo !empty($_REQUEST["fechaNacimiento"])&&empty($aError["fechaNacimiento"]) ? htmlspecialchars($_REQUEST["fechaNacimiento"]): '' ?>"/>
-
                             <?php echo !empty($aError["fechaNacimiento"]) ? "<span style='color:red;'>" . $aError['fechaNacimiento'] . "</span>": '' ?>
+                            
                             <br/>
                             <label for="sueldo" >Sueldo:</label>
-
                             <input type="text" name="sueldo" id="sueldo" title="Usar comas para separa decimales" value="<?php echo !empty($_REQUEST["sueldo"]) ? htmlspecialchars($_REQUEST["sueldo"]): '' ?>"/>
-
                             <?php echo !empty($aError["sueldo"]) ? "<span style='color:red;'>" . $aError['sueldo'] . "</span>": '' ?>
-
+                            
                             <br/>
 
                             <input type="submit" name="enviar" id="enviar" value="Enviar"/>

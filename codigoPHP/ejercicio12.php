@@ -20,7 +20,7 @@
             .ejercicio{
                 margin-top: 10px;
                 margin-bottom: 10px;
-                width: 1150px;
+                width: 1250px;
                 border: 1px solid black;
                 border-radius: 10px;
 
@@ -61,21 +61,12 @@
                      * Mostrar el contenido de las variables superglobales (utilizando print_r() y foreach()).
                      */
 
-                    echo "<h3>Contenido de \$_SERVER usando print_r:</h3>";
+                    echo "<h3>Contenido de las variables globales usando print_r:</h3>";
                     echo "<pre>";
-                    print_r($_SERVER);
+                    print_r($GLOBALS);
                     echo "</pre>";
 
-                    echo "<h2>Contenido de \$_SERVER usando foreach()</h2>";
-                    echo "<ul>";
-                    foreach ($_SERVER as $clave => $valor) {
-                        // Si el valor es un array (rara vez en $_SERVER, pero útil en otras), lo convertimos a texto
-                        if (is_array($valor)) {
-                            $valor = json_encode($valor);
-                        }
-                        echo "<li><strong>{$clave}:</strong> {$valor}</li>";
-                    }
-                    echo "</ul>";
+                    
                     
                     
                     
